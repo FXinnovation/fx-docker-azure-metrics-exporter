@@ -1,6 +1,6 @@
 FROM golang:1.11 as builder
 WORKDIR /go/src/github.com/RobustPerception/azure_metrics_exporter
-RUN git clone https://github.com/RobustPerception/azure_metrics_exporter/blob/master/
+RUN git clone https://github.com/RobustPerception/azure_metrics_exporter.git
 RUN make build
 
 ENV CA_CERTIFICATES_VERSION=20190108-r0
