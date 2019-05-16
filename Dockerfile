@@ -23,7 +23,7 @@ EXPOSE 9276
 ENTRYPOINT ["/bin/azure_metrics_exporter"]
 
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
-      "org.label-schema.name"="azure-exporter" \
+      "org.label-schema.name"="azure_metrics_exporter" \
       "org.label-schema.base-image.name"="docker.io/library/alpine" \
       "org.label-schema.base-image.version"="3.9" \
       "org.label-schema.applications.ca-certificates.version"=${CA_CERTIFICATES_VERSION} \
