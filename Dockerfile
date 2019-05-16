@@ -11,7 +11,7 @@ ARG VERSION
 
 FROM alpine:3.9 AS app
 
-COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter/azure_metrics_exporter /bin/azure_metrics_exporter
+COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter /bin/azure_metrics_exporter
 
 
 EXPOSE 9276
