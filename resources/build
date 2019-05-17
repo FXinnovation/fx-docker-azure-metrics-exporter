@@ -4,10 +4,8 @@ set -ex
 # Creating application user
 adduser \
   --system \
-  --home-dir /usr/local/HelpSystems \
-  --create-home \
-  --user-group \
-  azure_exporter
+  -h /usr/local/azure_exporter \
+  -g azure_exporter
 
 # Install confd
 curl -sSL \
