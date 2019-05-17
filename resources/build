@@ -4,6 +4,7 @@ set -ex
 # Creating application user
 adduser -s -h /usr/local/azure_exporter -g azure_exporter
 
+
 # Install confd
 curl -sSL \
   -o /resources/confd_binary \
