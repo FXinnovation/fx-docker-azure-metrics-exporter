@@ -3,7 +3,7 @@ set -ex
 
 # Creating application user
 adduser \
-  --system \
+  -s \
   -h /usr/local/azure_exporter \
   -g azure_exporter
 
