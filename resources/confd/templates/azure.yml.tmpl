@@ -10,7 +10,7 @@ credentials:
 targets:
   - resource: "{{getenv "AZURE_RESOURCE_ID"}}"
     metrics:
-    - name: "{{getenv "METRICS_NAME"}}"
+    - name: "{{getenv "TARGETS_METRICS_NAME"}}"
   
 #resource_groups:
 #  - resource_group: "webapps"
@@ -21,10 +21,9 @@ targets:
 #    resource_name_exclude_re:
 #    - "testvm12"
 #    metrics:
-#    - name: "CPU Credits Consumed"
+#    - name: "{{getenv "RESOURCE_GROUPS_TARGETS_METRICS_NAME"}}"
 
 resource_tags:
-  - resource_tag_name: "group"
-    resource_tag_value: "tomonitor"
+  - resource_tag_name: "{{getenv "RESOURCE_TAG_NAME"}}"
     metrics:
-    - name: "CPU Credits Consumed"
+    - name: "{{getenv "RESOURCE_TAGS_METRICS_NAME"}}"
