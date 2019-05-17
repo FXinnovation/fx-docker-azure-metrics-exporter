@@ -1,0 +1,30 @@
+---
+active_directory_authority_url: "{{getenv "ACTIVE_DIRECTORY_AUTHORITY_URL"}}"
+resource_manager_url: "{{getenv "RESOURCE_MANAGER_URL"}}"
+credentials:
+  subscription_id: {{getenv "SUBSCRIPTION_ID"}}
+  client_id: {{getenv "CLIENT_ID"}}
+  client_secret: {{getenv "CLIENT_SECRET"}}
+  tenant_id: {{getenv "TENANT_ID"}}
+
+targets:
+  - resource: "{{getenv "AZURE_RESOURCE_ID"}}"
+    metrics:
+    - name: "{{getenv "METRICS_NAME"}}"
+  
+#resource_groups:
+#  - resource_group: "webapps"
+#    resource_types:
+#    - "Microsoft.Compute/virtualMachines"
+#    resource_name_include_re:
+#    - "testvm.*"
+#    resource_name_exclude_re:
+#    - "testvm12"
+#    metrics:
+#    - name: "CPU Credits Consumed"
+
+resource_tags:
+  - resource_tag_name: "group"
+    resource_tag_value: "tomonitor"
+    metrics:
+    - name: "CPU Credits Consumed"

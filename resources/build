@@ -1,0 +1,29 @@
+#!/bin/sh
+set -ex
+
+# Creating application user
+adduser \
+  --system \
+  --home-dir /usr/local/HelpSystems \
+  --create-home \
+  --user-group \
+  azure_exporter
+
+# Install confd
+curl -sSL \
+  -o /resources/confd_binary \
+  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
+
+mkdir -p /opt/confd/bin
+mkdir -p /etc/confd
+mv /resources/confd_binary /opt/confd/bin/confd
+chmod +x /opt/confd/bin/confd
+ln -s /opt/confd/bin/confd /usr/local/bin/confd
+
+mv /resources/confd/conf.d /etc/confd
+mv /resources/confd/templates /etc/confd
+
+# CIS Hardening
+touch /etc/login.defs
+chmod 0444 /etc/login.defs
+chmod 0600 /etc/shadow
