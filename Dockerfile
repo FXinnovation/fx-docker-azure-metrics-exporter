@@ -4,8 +4,8 @@ ENV AZURE_METRICS_EXPORTER_VERSION=4411b47ff5c61208b1cbd3e8a1e2d097aabdafa7
 
 WORKDIR /go/src/github.com/RobustPerception/azure_metrics_exporter
 
-RUN git clone https://github.com/RobustPerception/azure_metrics_exporter.git .\
-    git checkout ${AZURE_METRICS_EXPORTER_VERSION} \
+RUN git clone https://github.com/RobustPerception/azure_metrics_exporter.git . &&\
+    git checkout ${AZURE_METRICS_EXPORTER_VERSION} &&\
     make build
 
 ARG BUILD_DATE
