@@ -16,6 +16,8 @@ FROM alpine:3.9
 
 ENV CA_CERTIFICATES_VERSION=20190108-r0 \
     CONFD_VERSION=0.16.0
+    
+RUN apk --no-cache add curl 
 
 COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter /bin/azure_metrics_exporter
 
