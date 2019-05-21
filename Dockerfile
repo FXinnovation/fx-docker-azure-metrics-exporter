@@ -15,8 +15,19 @@ ARG VERSION
 FROM alpine:3.9
 
 ENV CA_CERTIFICATES_VERSION=20190108-r0 \
-    CONFD_VERSION=0.16.0
-    
+    CONFD_VERSION=0.16.0 \
+    RESOURCE_MANAGER_URL=https://change.me.com \
+    ACTIVE_DIRECTORY_AUTHORITY_URL=https://change.me.com \
+    SUBSCRIPTION_ID=apekeii-eaee \
+    CLIENT_ID=iqpjdpqjiwdm \
+    CLIENT_SECRET=kdwokdqjdqkpqkdqo \
+    TENANT_ID=kdqqojdwdqp \
+    AZURE_RESOURCE_ID=jdqojdqodwqdijd \
+    METRICS_NAME=memory \
+    RESOURCE_TAG_NAME=tagname \
+    RESOURCE_TAGS_METRICS_NAME=metricsname \
+    RESOURCE_GROUPS_TARGETS_METRICS_NAME=targetsmetricsname 
+
 RUN apk --no-cache add curl 
 
 COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter /bin/azure_metrics_exporter

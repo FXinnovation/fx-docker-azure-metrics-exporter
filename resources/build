@@ -19,6 +19,9 @@ ln -s /opt/confd/bin/confd /usr/local/bin/confd
 mv /resources/confd/conf.d /etc/confd
 mv /resources/confd/templates /etc/confd
 
+# Adding entrypoint
+mv /resources/entrypoint /usr/local/azure-exporter/entrypoint
+
 # CIS Hardening
 touch /etc/login.defs
 chmod 0444 /etc/login.defs
