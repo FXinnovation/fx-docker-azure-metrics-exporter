@@ -37,7 +37,8 @@ ADD ./resources /resources
 RUN /resources/build && rm -rf /resources
 
 EXPOSE 9276
-ENTRYPOINT ["/bin/azure_metrics_exporter"]
+ENTRYPOINT ["sh", "-c", "/usr/local/azure-exporter/entrypoint"]
+
 
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
       "org.label-schema.name"="azure-metrics-exporter" \
