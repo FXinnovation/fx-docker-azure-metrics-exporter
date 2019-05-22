@@ -23,6 +23,7 @@ ENV CA_CERTIFICATES_VERSION=20190108-r0 \
     CLIENT_SECRET=kdwokdqjdqkpqkdqo \
     TENANT_ID=kdqqojdwdqp \
     AZURE_RESOURCE_ID=jdqojdqodwqdijd \
+    AZURE_METRICS_EXPORTER_VERSION=4411b47ff5c61208b1cbd3e8a1e2d097aabdafa7 \
     METRICS_NAME=memory \
     RESOURCE_TAG_NAME=tagname \
     RESOURCE_TAGS_METRICS_NAME=metricsname \
