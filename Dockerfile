@@ -8,11 +8,11 @@ RUN git clone https://github.com/RobustPerception/azure_metrics_exporter.git . &
     git checkout ${AZURE_METRICS_EXPORTER_VERSION} &&\
     make build
 
+FROM alpine:3.9
+
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
-
-FROM alpine:3.9
 
 ENV CA_CERTIFICATES_VERSION=20190108-r0 \
     CONFD_VERSION=0.16.0 \
