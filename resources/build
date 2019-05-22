@@ -4,6 +4,8 @@ set -ex
 # Creating application user
 adduser -S -h /usr/local/azure-exporter azure-exporter
 
+#install curl
+apk --no-cache add curl 
 
 # Install confd
 curl -sSL \

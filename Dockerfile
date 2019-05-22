@@ -28,8 +28,6 @@ ENV CA_CERTIFICATES_VERSION=20190108-r0 \
     RESOURCE_TAGS_METRICS_NAME=metricsname \
     RESOURCE_GROUPS_TARGETS_METRICS_NAME=targetsmetricsname 
 
-RUN apk --no-cache add curl 
-
 COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter /bin/azure_metrics_exporter
 
 ADD ./resources /resources
