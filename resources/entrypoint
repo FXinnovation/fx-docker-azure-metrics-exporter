@@ -1,2 +1,3 @@
 # Running confd
 confd -onetime -backend env
+./azure-metrics-exporter
