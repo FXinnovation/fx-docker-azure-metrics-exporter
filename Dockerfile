@@ -38,6 +38,8 @@ RUN /resources/build && rm -rf /resources
 
 EXPOSE 9276
 
+USER exporter
+
 ENTRYPOINT ["/opt/azure_metrics_exporter/azure_metrics_exporter", "--config.file='/opt/azure_metrics_exporter/conf/azure.yml'"]
 
 
