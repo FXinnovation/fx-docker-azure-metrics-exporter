@@ -15,7 +15,7 @@ chown -R exporter /opt/azure_metrics_exporter
 # Install depencies
 ###
 apk add --no-cache \
-  ca-certificate=${CA_CERTIFICATES_VERSION}
+  ca-certificates=${CA_CERTIFICATES_VERSION}
 
 ###
 # CIS Hardening
