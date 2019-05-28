@@ -36,7 +36,7 @@ ADD ./resources /resources
 RUN /resources/build && rm -rf /resources
 
 EXPOSE 9276
-ENTRYPOINT ["sh", "-c", "/usr/local/azure-exporter/entrypoint"]
+ENTRYPOINT ["/usr/local/azure-exporter/entrypoint"]
 
 
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
