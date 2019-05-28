@@ -1,30 +1,19 @@
 #!/bin/sh
 set -ex
 
-# Creating application user
-adduser -S -h /usr/local/azure-exporter azure-exporter
+###
+# Install azure metrics exporter
+###
+mkdir -p /opt/azure_metrics_exporter
+mv /resources/azure_metrics_exporter /opt/azure_metrics_exporter/
 
-#install curl
-apk --no-cache add curl 
+adduser -S -h /opt/azure_metrics_exporter exporter
 
-# Install confd
-curl -sSL \
-  -o /resources/confd_binary \
-  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
+chown -R exporter /opt/azure_metrics_exporter
 
-mkdir -p /opt/confd/bin
-mkdir -p /etc/confd
-mv /resources/confd_binary /opt/confd/bin/confd
-chmod +x /opt/confd/bin/confd
-ln -s /opt/confd/bin/confd /usr/local/bin/confd
-
-mv /resources/confd/conf.d /etc/confd
-mv /resources/confd/templates /etc/confd
-
-# Adding entrypoint
-mv /resources/entrypoint /usr/local/azure-exporter/entrypoint
-
+###
 # CIS Hardening
+###
 touch /etc/login.defs
 chmod 0444 /etc/login.defs
 chmod 0600 /etc/shadow

@@ -15,7 +15,6 @@ ARG VCS_REF
 ARG VERSION
 
 ENV CA_CERTIFICATES_VERSION=20190108-r0 \
-    CONFD_VERSION=0.16.0 \
     RESOURCE_MANAGER_URL=https://change.me.com \
     ACTIVE_DIRECTORY_AUTHORITY_URL=https://change.me.com \
     SUBSCRIPTION_ID=apekeii-eaee \
@@ -29,14 +28,17 @@ ENV CA_CERTIFICATES_VERSION=20190108-r0 \
     RESOURCE_TAGS_METRICS_NAME=metricsname \
     RESOURCE_GROUPS_TARGETS_METRICS_NAME=targetsmetricsname 
 
-COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter /bin/azure_metrics_exporter
-
 ADD ./resources /resources
+
+COPY --from=builder /go/src/github.com/RobustPerception/azure_metrics_exporter/azure_metrics_exporter /resources/azure_metrics_exporter
+
+VOLUME /opt/azure_metrics_exporter/conf
 
 RUN /resources/build && rm -rf /resources
 
 EXPOSE 9276
-ENTRYPOINT ["/usr/local/azure-exporter/entrypoint"]
+
+ENTRYPOINT ["/opt/azure_metrics_exporter/azure_metrics_exporter", "--config.file='/opt/azure_metrics_exporter/conf/azure.yml'"]
 
 
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \

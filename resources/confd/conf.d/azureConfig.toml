@@ -1,3 +1,0 @@
-[template]
-src = "azure.yml.tmpl"
-dest = "/bin/azure_metrics_exporter/azure.yml"
