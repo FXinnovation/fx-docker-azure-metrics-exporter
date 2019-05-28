@@ -12,6 +12,12 @@ adduser -S -h /opt/azure_metrics_exporter exporter
 chown -R exporter /opt/azure_metrics_exporter
 
 ###
+# Install depencies
+###
+apk add --no-cache \
+  ca-certificate=${CA_CERTIFICATES_VERSION}
+
+###
 # CIS Hardening
 ###
 touch /etc/login.defs
