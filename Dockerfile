@@ -40,7 +40,7 @@ EXPOSE 9276
 
 USER exporter
 
-ENTRYPOINT ["/opt/azure_metrics_exporter/azure_metrics_exporter", "--config.file='/opt/azure_metrics_exporter/conf/azure.yml'"]
+ENTRYPOINT ["/opt/azure_metrics_exporter/azure_metrics_exporter", "--config.file=/opt/azure_metrics_exporter/conf/azure.yml"]
 
 
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
