@@ -1,3 +1,3 @@
 fxDockerImage(
-  image: 'azure-metrics-exporter'
+  image: 'azure_metrics_exporter'
 )
