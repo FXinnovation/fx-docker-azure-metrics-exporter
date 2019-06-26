@@ -4,7 +4,7 @@ set -ex
 ###
 # Install azure metrics exporter
 ###
-mkdir -p /opt/azure_metrics_exporter
+mkdir -p /opt/azure_metrics_exporter/conf
 mv /resources/azure_metrics_exporter /opt/azure_metrics_exporter/
 
 adduser -S -h /opt/azure_metrics_exporter exporter
