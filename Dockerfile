@@ -1,6 +1,6 @@
 FROM golang:1.11 as builder
 
-ENV AZURE_METRICS_EXPORTER_VERSION=30b290e126f620ea77871fb7491575cd826fb576
+ENV AZURE_METRICS_EXPORTER_VERSION=3779f024d1e260d266d720410cfddc975b1aab7b
 
 WORKDIR /go/src/github.com/RobustPerception/azure_metrics_exporter
 
